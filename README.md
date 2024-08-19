@@ -1,30 +1,32 @@
-#### This project was created using [themetalfleece/nodejs-typescript-template](https://github.com/themetalfleece/nodejs-typescript-template)
+# Celso Santos - Code Challenge
 
-# This template gets updated daily so the latest dependencies are always used!
+## Candidate
 
-## What to do after using this template
+- Celso Santos (celso.bemsantos@gmail.com)
 
-1. Edit `package.json` to set the project name, version, description, and author.
-2. Edit the `LICENSE` file to use your name in the Copyright section.
-3. Edit the `.prettierrc.json` file with your preferred values.
-4. Remove the `.github/workflows/upgrade-dependencies.yml` files, since it contains the workflow to upgrade all dependencies on a daily basis.
-   * In case you would like to keep it, remove lines 7, 30, 32 from it. Also, change the git user name in line 28.
-5. Delete this section from the `README.md` file.
-6. Start coding by editing the `src/app.ts` file!
+## Summary
+
+This is a small Node.js + Express application (in Typescript) that will manage a set of Points of Interest, in this particular case, fuel stations.
+
+## Take-away notes
+
+- TypeORM is a new tool to me and proved a little challenging with the TS configurations and this ended up costing around 40 minutes here-and-there overall.
+- There is only basic functionality implemented which hasn't been properly tested (is in TODO)
+- Overall, the time given to the challenge felt a little short, especially due to TypeORM, but that's not an excuse. More could have been achieved
 
 ## Install
 
-1. Install [node.js](https://nodejs.org/en/download/), [yarn](https://yarnpkg.com/getting-started/install) (or use npm).
-2. Clone this repository, and using a terminal navigate to its directory.
-3. Run `yarn` or `npm install` to install the dependencies.
+1. Install [node.js](https://nodejs.org/en/download/), and npm.
+2. Navigate to its directory.
+3. Run `npm install` to install the dependencies.
 
 ## Build & Run
 
 1. Copy the contents of the `.env.example` file to a `.env` next to it, and edit it with your values.
-2. Run `yarn build` or `npm build` to build the files.
-3. Run `yarn start` or `npm start` to start the application.
+2. Run `npm build` to build the files.
+3. Run `npm start` to start the application.
 
--   You can run `yarn dev` or `npm dev` to combine the 2 steps above, while listening to changes and restarting automatically.
+-   You can run `npm dev` to combine the 2 steps above, while listening to changes and restarting automatically.
 
 ## Run with Docker
 
@@ -42,6 +44,24 @@
     ```
     Replacing `my-app` with the image name, and `3000:3000` with the `host:container` ports to publish.
 
+## "Live" Testing the API
+
+To test the API you can use the provided `api.http` file (if you have a compatible plugin), or alternative you can use curl (assuming the app runs on port 3000)
+
+```shell
+# To return a "Hello!" indicating the app is live and working
+curl --request GET \
+  --url http://localhost:3000/ \
+  --header 'content-type: "application/json"'
+
+# This is a healthcheck
+curl --request GET \
+  --url 'http://localhost:3000/health' \
+  --header 'content-type: "application/json"'
+
+
+```
+
 ## Developing
 
 ### Visual Studio Code
@@ -50,18 +70,11 @@
 
 ## Linting & Formatting
 
--   Run `yarn lint` or `npm lint` to lint the code.
--   Run `yarn format` or `npm format` to format the code.
+-   Run `npm lint` to lint the code.
+-   Run `npm format` to format the code.
 
 ## Testing
 
-Check the placeholder test examples to get started : 
-
-- `/src/app.ts` that provide a function `sum` 
-- `/test/app.spec.ts` who test the `sum` function 
-
-This files are just an example, feel free to remove it
-
--   Run `yarn test` or `npm test` to execute all tests.
--   Run `yarn test:watch` or `npm test:watch` to run tests in watch (loop) mode.
--   Run `yarn test:coverage` or `npm test:coverage` to see the tests coverage report.
+-   Run `npm test` to execute all tests.
+-   Run `npm test:watch` to run tests in watch (loop) mode.
+-   Run `npm test:coverage` to see the tests coverage report.

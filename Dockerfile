@@ -1,19 +1,18 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /usr/app
 
 # first copy just the package and the lock file, for caching purposes
 COPY package.json ./
-COPY yarn.lock ./
 
 # install dependencies
-RUN yarn
+RUN npm i
 
 # copy the entire project
 COPY . .
 
 # build
-RUN yarn build
+RUN npm run build
 
 EXPOSE 3000
-CMD [ "yarn", "start" ]
+CMD [ "npm", "run", "start" ]
